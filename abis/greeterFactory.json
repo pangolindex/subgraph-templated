@@ -1,0 +1,52 @@
+[
+  {
+    "inputs": [],
+    "stateMutability": "nonpayable",
+    "type": "constructor"
+  },
+  {
+    "anonymous": false,
+    "inputs": [
+      {
+        "indexed": false,
+        "internalType": "address",
+        "name": "greeter",
+        "type": "address"
+      }
+    ],
+    "name": "GreeterCreated",
+    "type": "event"
+  },
+  {
+    "inputs": [],
+    "name": "create",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "greeter",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "manuallyCreated",
+        "type": "address"
+      }
+    ],
+    "name": "createManually",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
+]

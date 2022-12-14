@@ -1,0 +1,11 @@
+type Greeter @entity {
+  id: ID!
+  timestamp: BigInt!
+}
+
+type Greeting @entity {
+  id: ID!
+  greeter: Greeter!
+  message: String!
+  timestamp: BigInt!
+}

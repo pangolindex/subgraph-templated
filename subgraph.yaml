@@ -1,0 +1,46 @@
+specVersion: 0.0.4
+description: Pangolin is a decentralized exchange for swapping Ethereum and Avalanche assets on Avalanche.
+repository: https://github.com/pangolindex/subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Factory
+    network: local
+    source:
+      address: "0x0000000000000000000000000000000002ed1a17"
+      abi: Factory
+      startBlock: 28349960
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Greeter
+      abis:
+        - name: Factory
+          file: ./abis/greeterFactory.json
+      eventHandlers:
+        - event: GreeterCreated(address)
+          handler: handleNewGreeter
+      file: ./mappings/factory.ts
+templates:
+  - kind: ethereum
+    name: Greeter
+    network: local
+    source:
+      abi: Greeter
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.6
+      language: wasm/assemblyscript
+      entities:
+        - Greeter
+        - Greeting
+      abis:
+        - name: Greeter
+          file: ./abis/greeter.json
+      eventHandlers:
+        - event: GreetingSet(string)
+          handler: handleGreetingSet
+      file: ./mappings/greeter.ts
